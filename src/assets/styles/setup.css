@@ -2,18 +2,14 @@
     /**
 	 * Colours
 	 */
-    --rgb--1: 26, 36, 66; /* #1A2442 */
 
     --color--1: white;
     --color--2: black;
-    --color--3: purple;
-    --color--4: aqua;
 
     /**
 	 * Font families
 	 */
-    --family--1: "Courier Prime";
-    --family--2: "Montserrat";
+    --family--1: "LayGrotesk";
 
     /* Font fallbacks (retrieved from systemfontstack.com)
 	 * Sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
@@ -27,20 +23,20 @@
     /**
 	 * Containers
 	 */
-    --container-max-width-1: 1620px;
-    --container-max-width-2: 1140px;
-    --container-max-width-3: 940px;
+    --container-max-width-1: 1366px;
+    --container-max-width-2: 1286px;
+    --container-max-width-3: 850px;
 
     /* Default padding */
-    --container-padding-xl: 50px;
-    --container-padding-lg: 40px;
+    --container-padding-xl: 40px;
+    --container-padding-lg: 36px;
     --container-padding-sm: 4.5vw;
 
     /**
 	 * Base
 	 */
-    --base--bg-color: #000000;
-    --base--text-color: #eff1ef;
+    --base--text-color: var(--color--2);
+    --base--bg-color: var(--color--1);
     --base--font-family: var(--family--1);
 
     /**
@@ -58,4 +54,5 @@
     --scroller-background-blur: blur(20px);
     --scroller-background-padding-x: 4px;
     --scroller-background-padding-y: 4px;
+    
 }

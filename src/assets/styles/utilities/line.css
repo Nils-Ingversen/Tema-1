@@ -1,0 +1,10 @@
+.u-line {
+    background-color: black;
+    height: 1px;
+    width: 100%;
+    opacity: 0.2;
+
+    &.-pad-4 {
+        margin: 4px 0;
+    }
+}

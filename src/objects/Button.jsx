@@ -1,24 +1,18 @@
+import { NavLink } from "react-router";
 import lenis from "@/vendors/lenis.js";
-
-/**
- * classes: string
- * href: string
- * title: string
- * target: string
- * scroll: boolean
- * onClick: function
- */
 
 const Button = ({ children, ...props }) => {
     const {
-        classes,
+        className,
         href,
         title = "",
         target = "_self",
         scroll,
         onClick,
     } = props;
-    const btnClass = classes ? `btn ${classes}` : "btn";
+    const btnClasses = `btn u-btn--1 ${className ? className : ""}`;
+    const isExternal = href.startsWith("http");
+    const isAnchor = href.startsWith("#");
 
     const handleClick = (event) => {
         if (scroll) {
@@ -30,13 +24,30 @@ const Button = ({ children, ...props }) => {
         }
     };
 
-    if (href) {
+    if (isExternal) {
         return (
             <a
-                className={btnClass}
+                className={btnClasses}
                 href={href}
                 title={title}
-                target={target}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleClick}
+                data-cursor="-pointer"
+            >
+                <span className="btn_label">{children}</span>
+            </a>
+        );
+    }
+
+    if (isAnchor) {
+        return (
+            <a
+                className={btnClasses}
+                href={href}
+                title={title}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={handleClick}
                 data-cursor="-pointer"
             >
@@ -46,10 +57,33 @@ const Button = ({ children, ...props }) => {
     }
 
     return (
-        <div className={btnClass} style={{ cursor: "default" }}>
+        <NavLink
+            className={btnClasses}
+            to={href}
+            title={title}
+            target={target}
+            onClick={handleClick}
+            data-cursor="-pointer"
+            end
+        >
             <span className="btn_label">{children}</span>
-        </div>
+        </NavLink>
     );
 };
 
 export default Button;
+
+/**
+ * Instructions:
+ * 	<PrimaryBtn classes="{optional modifiers}" href="#contact" title="Scroll" scroll  onClick={handleLinkClick}>
+		Contact
+	</PrimaryBtn>
+
+
+	// Optional onClick function
+	
+	const handleLinkClick = () => {
+		console.log('handleLinkClick')
+		setIsOpen(false)
+	}
+*/

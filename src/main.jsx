@@ -1,6 +1,7 @@
-import { StrictMode } from "react";
+import { BrowserRouter, Routes, Route } from "react-router";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+import Home from "./Home.jsx";
+
 import "./assets/styles/base/imports.css";
 
 // Import CSS files
@@ -16,7 +17,9 @@ const scroller = new Scroller();
 scroller.init();
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <App />
-    </StrictMode>
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />} />
+        </Routes>
+    </BrowserRouter>
 );

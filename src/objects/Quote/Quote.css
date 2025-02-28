@@ -1,0 +1,48 @@
+.guillemets_content {
+    display: flex;
+    border-left: 2px solid black;
+    gap: 8px;
+    flex-direction: column;
+    padding-left: 16px;
+
+    .guillemets {
+        font-size: responsive 110px 110px;
+        font-range: 420px 1366px;
+        line-height: 109%;
+    }
+
+    .title {
+        font-size: responsive 32px 32px;
+        font-range: 420px 1366px;
+        line-height: 109%;
+        margin-bottom: 8px;
+        margin-top: 40px;
+    }
+
+    .details {
+        font-size: responsive 14px 14px;
+        font-range: 420px 1366px;
+        line-height: 120%;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        @media (--md-down) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 8px;
+        }
+    }
+
+    .details_product {
+        opacity: 50%;
+    }
+
+    .dot {
+        border-radius: 50%;
+        size: 2px;
+        background-color: black;
+        @media (--md-down) {
+            display: none;
+        }
+    }
+}
